@@ -25,7 +25,7 @@ app.get('/', function(req, res){
 
 /* The handler for the /author route */
 app.get('/author', function(req, res){
-    var stmt = 'select * firstName, lastName, dob, dod, sex, country, quote, quoteId, portrait, biography from l9_quotes, l9_author ' +
+    var stmt = 'select firstName, lastName, dob, dod, sex, country, quote, quoteId, portrait, biography from l9_quotes, l9_author ' +
                 'where l9_author.authorId = l9_quotes.authorId and l9_author.firstName= "' + req.query.firstname + '" and l9_author.lastName="' + req.query.lastname +'";';
 	connection.query(stmt, function(error, found){
 	    var author = null;
