@@ -47,26 +47,17 @@ app.get('/results', function(req, res){
 	    if(error) throw error;
 	    if(found.length){
 	        author = found;
+	        res.render('results', {author: author});
 	    }
-	    res.render('results', {author: author});
+	    else{
+	        res.render('error');
+	    }
+	    
 	});
 });
 
-/* The handler for the /author/name/id route */
-app.get('/author/:aid', function(req, res){
-    var stmt = 'select quote, firstName, lastName ' +
-               'from l9_quotes, l9_author ' +
-               'where l9_quotes.authorId=l9_author.authorId ' + 
-               'and l9_quotes.authorId=' + req.params.aid + ';'
-    connection.query(stmt, function(error, results){
-        if(error) throw error;
-        var name = results[0].firstName + ' ' + results[0].lastName;
-        res.render('quotes', {name: name, quotes: results});      
-    });
-});
 
 /* The handler for undefined routes */
- 
 
 /* Start the application server */
 const PORT = process.env.PORT || 3000;
