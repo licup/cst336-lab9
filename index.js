@@ -29,16 +29,16 @@ app.get('/results', function(req, res){
     var stmt;
     
     if(choice == "name"){
-        stmt = 'select * from l9_quotes, l9_author where l9_quotes.authorId=l9_author.authorId and l9_author.firstName=\'' + req.query.firstname + '\';'
+        stmt = 'select * from l9_quotes, l9_author where l9_quotes.authorId=l9_author.authorId and l9_author.firstName=' + req.query.firstname + ';';
     }
     else if(choice == "keyword"){
-        stmt = 'select * from l9_quotes, l9_author where l9_quotes.authorId=l9_author.authorId and quote like\'' + '% ' + req.query.firstname + ' %' + '\';'
+        stmt = 'select * from l9_quotes, l9_author where l9_quotes.authorId=l9_author.authorId and quote like' + '% ' + req.query.firstname + ' %' + ';';
     }
     else if(choice == "category"){
-        stmt = 'select * from l9_quotes, l9_author where l9_quotes.authorId=l9_author.authorId and l9_author.category=\'' + req.query.firstname + '\';';
+        stmt = 'select * from l9_quotes, l9_author where l9_quotes.authorId=l9_author.authorId and l9_author.category=' + req.query.firstname + ';';
     }
     else{
-        stmt = 'select * from l9_quotes, l9_author where l9_quotes.authorId=l9_author.authorId and l9_author.sex=\'' + req.query.firstname + '";';
+        stmt = 'select * from l9_quotes, l9_author where l9_quotes.authorId=l9_author.authorId and l9_author.sex=' + req.query.firstname + '";';
     }
     
 	connection.query(stmt, function(error, found){
