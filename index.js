@@ -11,9 +11,10 @@ app.set('view engine', 'ejs');
 /* Configure MySQL DBMS */
 const connection = mysql.createConnection({
     host: 'us-cdbr-iron-east-01.cleardb.net',
-    user: 'jr',
-    password: 'secret',
-    database: 'quotes_db'
+    user: 'b1d8198a140d36',
+    password: 'e35bf3fc',
+    database: 'heroku_03cbd9882ea9d18'
+    
 });
 connection.connect();
 
