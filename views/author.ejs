@@ -12,11 +12,11 @@
     
     <div class='row'>
         <%author.forEach(function(a){%>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#b<%a.quoteID%>">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#b<%a.quoteId%>">
                     <%a.firstName%> <%a.lastName%>
                 </button>
                 
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="a<%a.quoteId%>" aria-hidden="true">
+                <div class="modal fade" id="b<%a.quoteId%>" tabindex="-1" role="dialog" aria-labelledby="a<%a.quoteId%>" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
