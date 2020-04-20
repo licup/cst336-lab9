@@ -32,10 +32,7 @@ app.get('/author', function(req, res){
 	    var author = null;
 	    if(error) throw error;
 	    if(found.length){
-	        author = found[0];
-	        // Convert the Date type into the String type
-	        author.dob = author.dob.toString().split(' ').slice(0,4).join(' ');
-	        author.dod = author.dod.toString().split(' ').slice(0,4).join(' ');
+	        author = found;
 	    }
 	    res.render('author', {author: author});
 	});
