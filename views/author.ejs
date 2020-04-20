@@ -16,30 +16,30 @@
         <%}
         else{%>
             <% author.forEach(function(a){ %>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#b<%author.quoteID%>">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#b<%a.quoteID%>">
                     <%a.firstName%> <%a.lastName%>
                 </button>
                 
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="a<%author.quoteId%>" aria-hidden="true">
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="a<%a.quoteId%>" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="a<%author.quoteId%>"> <%a.firstName%> <%a.firstName%></h5>
+                        <h5 class="modal-title" id="a<%a.quoteId%>"> <%a.firstName%> <%a.firstName%></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                           <span aria-hidden="true">&times;</span>
                         </button>
                       </div>
                       <div class="modal-body">
-                        <img class='col-sm-4 portrait' src=<%=author.portrait%> />
+                        <img class='col-sm-4 portrait' src=<%=a.portrait%> />
         		        <div class='col-sm-4 info'>
-        		        <h3><%=author.firstName%> <%=author.lastName%></h3>
-        		        <div>Born: <%=author.dob%></div>
-        		        <div>Dead: <%=author.dod%></div>
-        		        <div>Sex: <%=author.sex%></div>
-        		        <div>Profession: <%=author.profession%></div>
-        		        <div>Country: <%=author.country%></div>
-        		        <div class='bio'><%=author.biography%></div>
-        		        <a href='/author/<%=author.authorId%>'><h2>Quotes</h2></a>
+        		        <h3><%=a.firstName%> <%=a.lastName%></h3>
+        		        <div>Born: <%=a.dob%></div>
+        		        <div>Dead: <%=a.dod%></div>
+        		        <div>Sex: <%=a.sex%></div>
+        		        <div>Profession: <%=a.profession%></div>
+        		        <div>Country: <%=a.country%></div>
+        		        <div class='bio'><%=a.biography%></div>
+        	
                       </div>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -49,7 +49,7 @@
                   </div>
                 </div>
             </div>
-        <%})%>
+        <%}%>
 	</div>
 </div>
 
