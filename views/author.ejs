@@ -11,11 +11,7 @@
     </div>
     
     <div class='row'>
-        <%if(!author){%>
-            <h1 class='col-sm-12 notfound'>CANNOT FIND YOUR AUTHOR !!!</h1>
-        <%}
-        else{%>
-            <% author.forEach(function(a){ %>
+        <%author.forEach(function(a){%>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#b<%a.quoteID%>">
                     <%a.firstName%> <%a.lastName%>
                 </button>
@@ -49,8 +45,7 @@
                   </div>
                 </div>
             </div>
-            <%)%>
-        <%}%>
+            <%})%>
 	</div>
 </div>
 
