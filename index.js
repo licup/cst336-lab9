@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 
 /* Configure MySQL DBMS */
 const connection = mysql.createConnection({
-    host: 'localhost',
+    host: 'us-cdbr-iron-east-01.cleardb.net',
     user: 'jr',
     password: 'secret',
     database: 'quotes_db'
