@@ -24,16 +24,17 @@ app.get('/', function(req, res){
 });
 
 /* The handler for the /author route */
-app.get('/author', function(req, res){
+app.get('/results', function(req, res){
+    var choice = req.query.option;
     var stmt = 'select firstName, lastName, dob, dod, sex, country, quote, quoteId, portrait, biography from l9_quotes, l9_author ' +
-                'where l9_author.authorId = l9_quotes.authorId and l9_author.firstName= "' + req.query.firstname + '" and l9_author.lastName="' + req.query.lastname +'";';
+                'where l9_author.authorId = l9_quotes.authorId and l9_author.firstName= "' + req.query.firstname + '";';
 	connection.query(stmt, function(error, found){
 	    var author = null;
 	    if(error) throw error;
 	    if(found.length){
 	        author = found;
 	    }
-	    res.render('author', {author: author});
+	    res.render('results', {author: author});
 	});
 });
 
