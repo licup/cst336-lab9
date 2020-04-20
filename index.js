@@ -26,18 +26,19 @@ app.get('/', function(req, res){
 /* The handler for the /author route */
 app.get('/results', function(req, res){
     var choice = req.query.option;
+    var stmt;
     
     if(choice == "name"){
-        var stmt = 'select * from l9_quotes, l9_author where l9_quotes.authorId=l9_author.authorId and l9_author.firstName=\'' + req.query.textInput + '\';'
+        stmt = 'select * from l9_quotes, l9_author where l9_quotes.authorId=l9_author.authorId and l9_author.firstName=\'' + req.query.textInput + '\';'
     }
     else if(choice == "keyword"){
-        var stmt = 'select * from l9_quotes, l9_author where l9_quotes.authorId=l9_author.authorId and quote like\'' + '% ' + req.query.firstname + ' %' + '\';'
+        stmt = 'select * from l9_quotes, l9_author where l9_quotes.authorId=l9_author.authorId and quote like\'' + '% ' + req.query.firstname + ' %' + '\';'
     }
     else if(choice == "category"){
-        var stmt = 'select * from l9_quotes, l9_author where l9_quotes.authorId=l9_author.authorId and l9_author.category=\'' + req.query.firstname + '\';';
+        stmt = 'select * from l9_quotes, l9_author where l9_quotes.authorId=l9_author.authorId and l9_author.category=\'' + req.query.firstname + '\';';
     }
     else{
-        var stmt = 'select * from l9_quotes, l9_author where l9_quotes.authorId=l9_author.authorId and l9_author.sex=\'' + req.query.firstname + '";';
+        stmt = 'select * from l9_quotes, l9_author where l9_quotes.authorId=l9_author.authorId and l9_author.sex=\'' + req.query.firstname + '";';
     }
     
 	connection.query(stmt, function(error, found){
