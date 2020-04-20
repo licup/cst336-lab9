@@ -12,13 +12,14 @@
     
     <div class='row'>
         <%author.forEach(function(a){%>
-                <div>
-                    <h3> <%=a.quote%>  </h3>
-                </div>
+                
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#b<%=a.quoteId%>">
                     <%=a.firstName%> <%=a.lastName%>
                 </button>
                 
+                <div>
+                    <h3> <%=a.quote%>  </h3>
+                </div>
                 <div class="modal fade" id="b<%=a.quoteId%>" tabindex="-1" role="dialog" aria-labelledby="a<%=a.quoteId%>" aria-hidden="true">
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -29,7 +30,7 @@
                         </button>
                       </div>
                       <div class="modal-body">
-                        <img class='portrait' src=<%=a.portrait%> />
+                        <img class='portrait' width='50%' src=<%=a.portrait%> />
         		        <div class='info'>
         		        <h3><%=a.firstName%> <%=a.lastName%></h3>
         		        <div>Born: <%=a.dob%></div>
