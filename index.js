@@ -26,15 +26,15 @@ app.get('/', function(req, res){
 /* The handler for the /author route */
 app.get('/results', function(req, res){
     var choice = req.query.option;
-    if(choice === "name"){
+    if(choice == "name"){
         var stmt = 'select firstName, lastName, dob, dod, sex, country, quote, quoteId, portrait, biography from l9_quotes, l9_author ' +
                 'where l9_author.authorId = l9_quotes.authorId and l9_author.firstName= "' + req.query.firstname + '";';
     }
-    else if(choice === "keyword"){
+    else if(choice == "keyword"){
         var stmt = 'select firstName, lastName, dob, dod, sex, country, quote, quoteId, portrait, biography from l9_quotes, l9_author ' +
                 'where l9_author.authorId = l9_quotes.authorId and quote like"' + '% ' + req.query.firstname + ' %' + '";';
     }
-    else if(choice === "category"){
+    else if(choice == "category"){
         var stmt = 'select firstName, lastName, dob, dod, sex, country, quote, quoteId, portrait, biography from l9_quotes, l9_author ' +
                 'where l9_author.authorId = l9_quotes.authorId and l9_author.category= "' + req.query.firstname + '";';
     }
